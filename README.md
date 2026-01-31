@@ -187,3 +187,47 @@ AegisAI-WatsonX/
 │
 ├── README.md
 └── .gitignore
+```
+
+---
+
+## 🛠️ Technologies Used
+
+- **IBM watsonx.ai**
+- **IBM watsonx Orchestrate**
+- **Agentic AI architecture**
+- **Python (governed tools)**
+- **Policy-driven AI design**
+- **Human-in-the-loop governance**
+
+---
+
+## 👥 Team
+
+- **Milan** — Agent Orchestration & Flow Design  
+- **Mahathi** — Tools & Backend Engineering  
+- **Adwaith R Nair** — watsonx.ai, Prompt Design & Reasoning Logic  
+- **Meenakshi** — Frontend, Documentation & Demo  
+
+---
+
+## 🏁 Conclusion
+
+AegisAI demonstrates how **agentic AI systems can be governed responsibly** in real-world, high-risk environments.
+
+By combining:
+- structured reasoning  
+- explicit policy grounding  
+- confidence-aware decisions  
+- human oversight  
+- and versioned learning  
+
+AegisAI moves beyond *“AI that answers”* to  
+**AI that knows when it should not.**
+
+---
+
+## 📌 License & Disclaimer
+
+This project is a **hackathon prototype** created for educational and demonstration purposes.  
+It is **not intended for production deployment without further validation and compliance review**.
