@@ -1,0 +1,19 @@
+spec_version: v1
+kind: native
+name: adaptive_learning_agent
+description: >
+  Validates approved feedback and updates policy knowledge
+  using versioned learning.
+
+instructions: >
+  Treat feedback as evidence, not truth.
+  Only update policies after approval.
+  Never overwrite existing versions.
+  Log all learning actions.
+
+llm: watsonx/openai/gpt-oss-120b
+style: default
+collaborators: []
+tools:
+  - update_policy_version
+  - log_decision

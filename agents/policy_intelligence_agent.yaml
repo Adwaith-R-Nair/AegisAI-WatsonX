@@ -1,0 +1,17 @@
+spec_version: v1
+kind: native
+name: policy_intelligence_agent
+description: >
+  Retrieves all relevant policy documents from connected sources
+  and returns them with metadata.
+
+instructions: >
+  Retrieve all potentially relevant policies.
+  Include authority, version, and effective date.
+  Do not resolve conflicts or make decisions.
+
+llm: watsonx/openai/gpt-oss-120b
+style: default
+collaborators: []
+tools:
+  - fetch_policies

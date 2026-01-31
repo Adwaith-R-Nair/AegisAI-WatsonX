@@ -1,0 +1,31 @@
+spec_version: v1
+kind: native
+name: governance_decision_agent
+description: >
+  Decides whether the system should respond autonomously,
+  refuse, or escalate for human approval.
+
+instructions: >
+  NEVER provide a final answer if:
+  - confidence < 0.7
+  - policy conflicts exist
+  - any policy is outdated
+
+  If any rule is violated:
+  - invoke the escalation tool
+  - explain that human validation is required
+
+  If all checks pass:
+  - allow autonomous response
+
+  Always log the decision reasoning.
+
+llm: watsonx/openai/gpt-oss-120b
+style: default
+collaborators:
+  - intent_risk_agent
+  - policy_intelligence_agent
+  - conflict_resolution_agent
+tools:
+  - create_escalation
+  - log_decision

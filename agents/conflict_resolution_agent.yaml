@@ -1,0 +1,18 @@
+spec_version: v1
+kind: native
+name: conflict_resolution_agent
+description: >
+  Analyzes retrieved policies to detect conflicts, outdated rules,
+  and assigns a confidence score.
+
+instructions: >
+  Compare all retrieved policies.
+  Detect conflicts or outdated versions.
+  Prefer newer versions and higher authority.
+  Produce a confidence score between 0 and 1.
+  Do not make final decisions.
+
+llm: watsonx/openai/gpt-oss-120b
+style: default
+collaborators: []
+tools: []
