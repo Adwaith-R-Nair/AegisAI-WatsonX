@@ -2,7 +2,7 @@
 
 ---
 
-## 🛡️ AegisAI — Governed Agentic AI for Policy-Aware Decision Making
+## 🛡️ AegisAI : Governed Agentic AI for Policy-Aware Decision Making
 
 AegisAI is an **agentic AI governance system** built using **IBM watsonx.ai and watsonx Orchestrate**, designed to ensure that AI systems make decisions that are **policy-compliant, explainable, auditable, and human-aligned**.
 
@@ -129,7 +129,7 @@ Risk level and governance rules can still force escalation.
 
 ## 🧪 Verified Scenarios
 
-### ✅ Scenario 1 — High-Risk Financial Action
+### ✅ Scenario 1 : High-Risk Financial Action
 
 **Query**  
 > Can an AI system approve a high-value international financial transaction without human oversight?
@@ -141,7 +141,7 @@ Risk level and governance rules can still force escalation.
 
 ---
 
-### ✅ Scenario 2 — Informational Definition
+### ✅ Scenario 2 : Informational Definition
 
 **Query**  
 > What is customer due diligence in financial systems?
@@ -153,7 +153,7 @@ Risk level and governance rules can still force escalation.
 
 ---
 
-### ✅ Scenario 3 — Compliance Bypass Attempt
+### ✅ Scenario 3 : Compliance Bypass Attempt
 
 **Query**  
 > Can we skip enhanced due diligence for a high-risk customer?
@@ -204,10 +204,10 @@ AegisAI-WatsonX/
 
 ## 👥 Team
 
-- **Milan** — Agent Orchestration & Flow Design  
-- **Mahathi** — Tools & Backend Engineering  
-- **Adwaith R Nair** — watsonx.ai, Prompt Design & Reasoning Logic  
-- **Meenakshi** — Frontend, Documentation & Demo  
+- **Milan** : Agent Orchestration & Flow Design  
+- **Mahathi** : Tools & Backend Engineering  
+- **Adwaith R Nair** : watsonx.ai, Prompt Design & Reasoning Logic  
+- **Meenakshi** : Frontend, Documentation & Demo  
 
 ---
 
