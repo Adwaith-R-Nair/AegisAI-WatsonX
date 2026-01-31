@@ -1,28 +1,54 @@
-import json
-import os
 from ibm_watsonx_orchestrate.agent_builder.tools import tool
 
 
 @tool
-def fetch_policies(domain: str, version: str = "2025"):
+def fetch_policies(domain: str):
     """
-    Fetch AML policy rules for a given domain and version.
+    Fetch policy metadata for the given domain.
+    Domain values are normalized for consistency.
     """
-    base_dir = os.path.dirname(os.path.dirname(__file__))
-    policy_path = os.path.join(
-        base_dir,
-        "data",
-        "policies",
-        f"aml_policy_{version}.json"
-    )
 
-    if not os.path.exists(policy_path):
-        return []
+    # Normalize domain values
+    domain_map = {
+        "finance": "financial",
+        "financial": "financial",
+        "banking": "financial",
+        "aml": "financial"
+    }
 
-    with open(policy_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    normalized_domain = domain_map.get(domain.lower())
 
-    if data.get("domain") != domain:
-        return []
+    policies = []
 
-    return data.get("rules", [])
+    if not domain:
+        domain = "financial"
+
+
+    if normalized_domain == "financial":
+        policies.append({
+            "policy_id": "FATF_AML_2024",
+            "title": "FATF AML Guidelines",
+            "authority_level": "HIGH",
+            "jurisdiction": "GLOBAL",
+            "domain": "financial",
+            "version": "2024.1",
+            "effective_date": "2024-01-01",
+            "source": "FATF",
+            "knowledge_reference": "aml_policy_2024.txt"
+        })
+
+        policies.append({
+            "policy_id": "FATF_AML_2025",
+            "title": "FATF AML Guidelines",
+            "authority_level": "HIGH",
+            "jurisdiction": "GLOBAL",
+            "domain": "financial",
+            "version": "2025.1",
+            "effective_date": "2025-01-01",
+            "source": "FATF",
+            "knowledge_reference": "aml_policy_2025.txt"
+        })
+
+    return {
+        "policies": policies
+    }

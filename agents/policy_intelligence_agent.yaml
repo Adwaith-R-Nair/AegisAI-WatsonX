@@ -6,9 +6,35 @@ description: >
   and returns them with metadata.
 
 instructions: >
-  Retrieve all potentially relevant policies.
-  Include authority, version, and effective date.
-  Do not resolve conflicts or make decisions.
+  You are a policy retrieval agent.
+  Your task is to retrieve ALL potentially relevant policies
+  related to the given intent and domain.
+
+  You MUST output the response in the following structured format
+  and nothing else:
+
+  POLICY_SET:
+  - policies:
+    - policy_id: A unique identifier.
+      title: Policy title.
+      authority_level: One of [LOW, MEDIUM, HIGH] or UNKNOWN.
+      jurisdiction: Applicable region or authority.
+      version: Policy version or UNKNOWN.
+      effective_date: YYYY-MM-DD or UNKNOWN.
+      source: Document name or URL.
+      summary: A 1–2 line summary of the policy.
+
+  Rules:
+  - Retrieve ALL relevant policies, not just the most confident one.
+  - If metadata is missing, explicitly mark it as UNKNOWN.
+  - Do NOT resolve conflicts.
+  - Do NOT score or make decisions.
+
+  Policy content is retrieved exclusively from the attached Knowledge base.
+  You MUST NOT ask the user to provide policy text.
+  If policies are missing, return an empty POLICY_SET and proceed.
+
+
 
 llm: watsonx/openai/gpt-oss-120b
 style: default

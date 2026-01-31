@@ -1,42 +1,30 @@
-import json
-import os
 from datetime import datetime
 from ibm_watsonx_orchestrate.agent_builder.tools import tool
 
 
 @tool
 def update_policy_version(
-    old_version: str,
-    new_version: str
+    previous_version: str,
+    new_version: str,
+    approved_by: str
 ):
     """
-    Update the active policy version after human approval.
-    This simulates policy evolution in a governed system.
+    Record a governed policy version update after explicit human approval.
+    This does NOT modify policy content.
+    It emits a versioning event for audit and governance.
     """
 
-    base_dir = os.path.dirname(os.path.dirname(__file__))
-    metadata_path = os.path.join(
-        base_dir,
-        "data",
-        "policies",
-        "policy_metadata.json"
-    )
-
-    metadata = {
-        "previous_version": old_version,
-        "active_version": new_version,
-        "updated_at": datetime.utcnow().isoformat(),
-        "status": "policy_version_updated"
+    version_update_event = {
+        "event_type": "POLICY_VERSION_UPDATE",
+        "timestamp": datetime.utcnow().isoformat(),
+        "previous_version": previous_version,
+        "new_active_version": new_version,
+        "approved_by": approved_by,
+        "status": "approved_and_active"
     }
 
-    # Ensure directory exists
-    os.makedirs(os.path.dirname(metadata_path), exist_ok=True)
-
-    with open(metadata_path, "w", encoding="utf-8") as f:
-        json.dump(metadata, f, indent=2)
-
+    # Return event for auditability and observability
     return {
         "status": "policy_version_updated",
-        "from": old_version,
-        "to": new_version
+        "event": version_update_event
     }
