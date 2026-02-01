@@ -1,4 +1,4 @@
-# 📘 AegisAI (WatsonX Agentic AI Governance System)
+#  AegisAI (WatsonX Agentic AI Governance System)
 
 ---
 
