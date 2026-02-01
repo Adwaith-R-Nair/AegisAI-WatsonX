@@ -193,6 +193,28 @@ Risk level and governance rules can still force escalation.
 
 ---
 
+## 🧠 Prompt Lab & Reasoning Design
+
+AegisAI’s reasoning logic was first designed and validated using **IBM watsonx Prompt Lab** before being operationalized in Orchestrate.
+
+Three structured prompt templates were created:
+
+1. **Intent & Risk Classification**
+   - Validates domain inference and risk categorization
+   - Distinguishes informational queries from high-risk actions
+
+2. **Policy Conflict & Confidence Scoring**
+   - Analyzes retrieved policies for conflicts and outdated versions
+   - Computes confidence based on authority, freshness, and agreement
+
+3. **Governance Decision Logic**
+   - Applies escalation and autonomy rules deterministically
+   - Ensures human-in-the-loop enforcement for regulated scenarios
+
+Prompt Lab serves as a **design-time reasoning validation layer**, while watsonx Orchestrate enforces this logic at runtime.
+
+---
+
 ## 🏗️ Project Structure
 
 ```text
@@ -237,6 +259,34 @@ AegisAI-WatsonX/
 - **Mahathi** : Tools & Backend Engineering  
 - **Adwaith R Nair** : watsonx.ai, Prompt Design & Reasoning Logic  
 - **Meenakshi** : Frontend, Documentation & Demo  
+
+---
+
+## 🎥 Demo & Evaluation Alignment
+
+This project was designed to align directly with the hackathon evaluation criteria:
+
+- **Agentic AI usage:** Multiple collaborating agents with clear responsibilities
+- **IBM watsonx Orchestrate:** End-to-end orchestration of agents and tools
+- **Governance & Safety:** Explicit policy grounding, confidence scoring, and human oversight
+- **Explainability:** Structured reasoning and auditable decision logs
+
+The demo showcases three representative scenarios covering:
+- High-risk financial decisions
+- Informational queries
+- Compliance bypass attempts
+
+---
+
+## ▶️ How to Demo
+
+1. Open IBM watsonx Orchestrate
+2. Select the **AegisAI** agent
+3. Run the following queries:
+   - High-risk transaction approval → ESCALATE
+   - Informational definition → RESPOND
+   - Compliance bypass attempt → ESCALATE
+4. Observe agent collaboration, reasoning steps, and decision outcomes
 
 ---
 
