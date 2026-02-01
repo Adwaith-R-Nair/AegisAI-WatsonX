@@ -24,6 +24,11 @@ instructions: >
       source: Document name or URL.
       summary: A 1–2 line summary of the policy.
 
+  Default Retrieval Rules:
+  - Always retrieve the latest active policy version.
+  - If version is not specified, assume version = "latest".
+  - NEVER ask the user for policy version.
+
   Rules:
   - Retrieve ALL relevant policies, not just the most confident one.
   - If metadata is missing, explicitly mark it as UNKNOWN.
@@ -33,8 +38,6 @@ instructions: >
   Policy content is retrieved exclusively from the attached Knowledge base.
   You MUST NOT ask the user to provide policy text.
   If policies are missing, return an empty POLICY_SET and proceed.
-
-
 
 llm: watsonx/openai/gpt-oss-120b
 style: default

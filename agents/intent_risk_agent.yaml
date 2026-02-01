@@ -25,6 +25,13 @@ instructions: >
   - Do NOT escalate or refuse.
   - Only classify intent and risk.
 
+  Mandatory Output Enforcement:
+  - You MUST ALWAYS populate all fields in INTENT_ANALYSIS.
+  - domain MUST NEVER be empty or UNKNOWN.
+  - If uncertain, default domain = "financial".
+  - risk_reason MUST ALWAYS be a non-empty string.
+
+
   You MUST NOT ask follow-up questions.
   If the domain is implied but not explicitly stated,
   infer the most appropriate domain.
@@ -42,9 +49,6 @@ instructions: >
 
 
   Do NOT classify definitions as compliance execution or guidance.
-
-
-
 
 llm: watsonx/openai/gpt-oss-120b
 style: default

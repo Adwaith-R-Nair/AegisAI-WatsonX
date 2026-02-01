@@ -56,10 +56,15 @@ instructions: >
     - authority_score = 0.0
     - freshness_score = 0.0
     - agreement_score = 0.0
-    - confidence_score = 0.0
+    - confidence_score = 0.5
   - Always produce the structured output format.
 
-
+  Output Guarantee:
+  - You MUST ALWAYS output all SCORING fields.
+  - confidence_score MUST NEVER be null, missing or undefined.
+  - NEVER omit confidence_score.
+  - If input policies are missing or malformed, treat as empty list.
+  - NEVER ask the user for policies, scores or inputs.
 
 llm: watsonx/openai/gpt-oss-120b
 style: default
