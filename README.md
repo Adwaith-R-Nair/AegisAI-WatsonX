@@ -51,6 +51,14 @@ This creates serious risks in:
 
 ## 🧠 System Architecture (High-Level)
 
+## 🧭 End-to-End Governance Flow
+
+The diagram below illustrates how AegisAI orchestrates multiple agents using IBM watsonx Orchestrate to enforce policy-aware, confidence-driven, and human-aligned decision making.
+
+![aegisai-governance-flow](https://github.com/user-attachments/assets/a11956ad-471e-4397-aa86-1c4feded1fd9)
+
+
+
 AegisAI is composed of **five collaborating agents** and **four governed tools**, orchestrated using **IBM watsonx Orchestrate**.
 
 ### 🔹 Core Agents
