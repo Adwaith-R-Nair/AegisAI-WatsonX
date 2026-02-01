@@ -51,7 +51,7 @@ This creates serious risks in:
 
 ## 🧠 System Architecture (High-Level)
 
-## 🔁 Agentic AI Orchestration Flow
+ 🔁 Agentic AI Orchestration Flow
 
 AegisAI follows a deterministic, multi-agent governance workflow orchestrated using IBM watsonx Orchestrate:
 
