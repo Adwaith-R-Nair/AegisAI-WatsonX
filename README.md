@@ -55,7 +55,11 @@ This creates serious risks in:
 
 The diagram below illustrates how AegisAI orchestrates multiple agents using IBM watsonx Orchestrate to enforce policy-aware, confidence-driven, and human-aligned decision making.
 
-![aegisai-governance-flow](https://github.com/user-attachments/assets/a11956ad-471e-4397-aa86-1c4feded1fd9)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a11956ad-471e-4397-aa86-1c4feded1fd9"
+       alt="AegisAI Governance Flow"
+       width="600"/>
+</p>
 
 
 
