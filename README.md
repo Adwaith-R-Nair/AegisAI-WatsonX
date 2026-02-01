@@ -51,38 +51,32 @@ This creates serious risks in:
 
 ## 🧠 System Architecture (High-Level)
 
-AegisAI is composed of **five collaborating agents** and **four governed tools**, orchestrated using **IBM watsonx Orchestrate**.
+## 🔁 Agentic AI Orchestration Flow
 
-### 🔹 Core Agents
+AegisAI follows a deterministic, multi-agent governance workflow orchestrated using IBM watsonx Orchestrate:
 
 1. **Intent & Risk Agent**
-   - Classifies user intent and domain
-   - Assigns risk level (LOW / MEDIUM / HIGH)
-   - Distinguishes informational vs actionable requests
+   - Analyzes the user query
+   - Classifies intent, domain, and risk level
 
 2. **Policy Intelligence Agent**
-   - Retrieves all relevant policies from the knowledge base
-   - Returns structured policy metadata (authority, version, date)
+   - Retrieves all relevant policy documents from the knowledge base
+   - Returns structured metadata without interpretation
 
 3. **Conflict Resolution Agent**
-   - Detects conflicts and outdated policies
-   - Computes a policy confidence score using weighted metrics:
-     - Authority
-     - Freshness
-     - Agreement
+   - Evaluates policy consistency, authority, and freshness
+   - Computes a policy confidence score using weighted metrics
 
 4. **Governance Decision Agent**
-   - Applies strict governance rules
-   - Decides whether to:
-     - RESPOND autonomously
-     - ESCALATE for human review
-     - REFUSE the request
-   - Ensures human-in-the-loop enforcement
+   - Applies governance rules based on risk, conflicts, and confidence
+   - Decides whether to RESPOND, ESCALATE, or REFUSE
+   - Enforces human-in-the-loop where required
 
 5. **Adaptive Learning Agent**
-   - Handles policy evolution
-   - Updates policy versions **only after human approval**
-   - Never overwrites existing policies
+   - Handles policy evolution after explicit human approval
+   - Ensures versioned, auditable updates without overwriting history
+
+This separation of concerns ensures explainability, auditability, and safe autonomy.
 
 ---
 
