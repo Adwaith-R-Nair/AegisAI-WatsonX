@@ -51,7 +51,58 @@ This creates serious risks in:
 
 ## 🧠 System Architecture (High-Level)
 
- 🔁 Agentic AI Orchestration Flow
+AegisAI is composed of **five collaborating agents** and **four governed tools**, orchestrated using **IBM watsonx Orchestrate**.
+
+### 🔹 Core Agents
+
+1. **Intent & Risk Agent**
+   - Classifies user intent and domain
+   - Assigns risk level (LOW / MEDIUM / HIGH)
+   - Distinguishes informational vs actionable requests
+
+2. **Policy Intelligence Agent**
+   - Retrieves all relevant policies from the knowledge base
+   - Returns structured policy metadata (authority, version, date)
+
+3. **Conflict Resolution Agent**
+   - Detects conflicts and outdated policies
+   - Computes a policy confidence score using weighted metrics:
+     - Authority
+     - Freshness
+     - Agreement
+
+4. **Governance Decision Agent**
+   - Applies strict governance rules
+   - Decides whether to:
+     - RESPOND autonomously
+     - ESCALATE for human review
+     - REFUSE the request
+   - Ensures human-in-the-loop enforcement
+
+5. **Adaptive Learning Agent**
+   - Handles policy evolution
+   - Updates policy versions **only after human approval**
+   - Never overwrites existing policies
+
+---
+
+### 🔹 Governed Tools
+
+- **fetch_policies**
+  - Returns policy metadata for a given domain
+
+- **create_escalation**
+  - Generates structured human-review escalation payloads
+
+- **log_decision**
+  - Records every decision with reasoning for auditability
+
+- **update_policy_version**
+  - Emits policy version update events after approval
+
+---
+
+ ## 🔁 Agentic AI Orchestration Flow
 
 AegisAI follows a deterministic, multi-agent governance workflow orchestrated using IBM watsonx Orchestrate:
 
@@ -77,22 +128,6 @@ AegisAI follows a deterministic, multi-agent governance workflow orchestrated us
    - Ensures versioned, auditable updates without overwriting history
 
 This separation of concerns ensures explainability, auditability, and safe autonomy.
-
----
-
-### 🔹 Governed Tools
-
-- **fetch_policies**
-  - Returns policy metadata for a given domain
-
-- **create_escalation**
-  - Generates structured human-review escalation payloads
-
-- **log_decision**
-  - Records every decision with reasoning for auditability
-
-- **update_policy_version**
-  - Emits policy version update events after approval
 
 ---
 
